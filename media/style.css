@@ -1,0 +1,175 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: var(--vscode-font-family);
+    background-color: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+}
+
+#root {
+    padding: 15px;
+}
+
+.tab-container {
+  padding: 20px;
+}
+
+.tab-header {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  color: #C0C0C0;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 8px 16px;
+}
+
+.tab-btn.active {
+  color: #0078D4;
+  border-bottom: 2px solid #0078D4;
+}
+
+.tab-content {
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 5px;
+}
+
+.template-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.template-table th,
+.template-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.template-header {
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #0078D4;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #106EBE;
+}
+.interface-list {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+}
+.interface-item {
+  display: flex;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+.interface-item:last-child {
+  border-bottom: none;
+}
+.checkbox {
+  margin-right: 10px;
+}
+.interface-info {
+  flex: 1;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--vscode-editor-background);
+  width: calc(100% - 40px);
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+}
+
+.modal-footer {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.modal-footer .btn {
+  margin-left: 10px;
+}
+
+.btn.primary {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+}
+
+.directory-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.directory-select input {
+  flex: 1;
+}
+
+.directory-select button {
+  flex-shrink: 0;
+}
+
+.toast-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  z-index: 1000;
+  animation: fadeIn 0.3s, fadeOut 0.3s 1.7s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

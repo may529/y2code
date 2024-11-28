@@ -1,0 +1,105 @@
+{
+  "name": "K2C",
+  "displayName": "K2C",
+  "description": "fontend to Code Generator",
+  "author": "majirong",
+  "version": "0.0.1",
+  "publisher": "majirong",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:K2C.createPage",
+    "onCommand:K2C.createApis",
+    "onView:yapiSettings"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vscode-yapi-helper",
+          "title": "K2C助手",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "vscode-yapi-helper": [
+        {
+          "type": "webview",
+          "id": "yapiSettings",
+          "name": "K2C助手设置"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "K2C.createPage",
+        "title": "K2C助手/创建页面"
+      },
+      {
+        "command": "K2C.createApis",
+        "title": "K2C助手/生成API代码"
+      },
+      {
+        "command": "K2C.saveYapiConfig",
+        "title": "保存YAPI配置"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "K2C.createPage",
+          "when": "explorerResourceIsFolder",
+          "group": "K2C@1"
+        },
+        {
+          "command": "K2C.createApis",
+          "when": "explorerResourceIsFolder",
+          "group": "K2C@2"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts",
+    "build:webview": "webpack --mode production",
+    "watch:webview": "webpack --mode development --watch",
+    "build": "npm run build:webview && tsc -p ./",
+    "build-webview": "webpack --config webpack.config.js",
+    "generate:api": "ytt"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "^16.x",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/vscode": "^1.60.0",
+    "@typescript-eslint/eslint-plugin": "^5.x",
+    "@typescript-eslint/parser": "^5.x",
+    "css-loader": "^7.1.2",
+    "eslint": "^8.x",
+    "prettier": "^3.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^4.x",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4",
+    "yapi-to-typescript": "^3.38.0"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "json5": "^2.2.3"
+  }
+}
