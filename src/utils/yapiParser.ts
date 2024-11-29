@@ -196,7 +196,8 @@ export class YAPIParser {
       // 处理form表单参数
       if (int.req_body_form?.length) {
         int.req_body_form.forEach((param) => {
-          if (processedFields.has(param.name)) return;
+          if (processedFields.has(param.name) || param.name.includes("."))
+            return;
 
           if (param.desc) {
             code += `  /** ${param.desc} */\n`;
@@ -216,7 +217,7 @@ export class YAPIParser {
         if (bodySchema.title !== "empty object") {
           const processObjectProperties = (obj: any) => {
             Object.entries(obj).forEach(([key, value]) => {
-              if (processedFields.has(key)) return;
+              if (processedFields.has(key) || key.includes(".")) return;
 
               if (descriptions[key]) {
                 code += `  /** ${descriptions[key]} */\n`;
@@ -251,7 +252,8 @@ export class YAPIParser {
       // 添加路径参数处理
       if (int.req_params && int.req_params?.length > 0) {
         int.req_params.forEach((param) => {
-          if (processedFields.has(param.name)) return;
+          if (processedFields.has(param.name) || param.name.includes("."))
+            return;
 
           const desc = param.desc ? ` // ${param.desc}` : "";
           code += `  ${param.name}: string;${desc}\n`;
@@ -262,7 +264,8 @@ export class YAPIParser {
       // 处理查询参数
       if (int.req_query?.length) {
         int.req_query.forEach((param) => {
-          if (processedFields.has(param.name)) return;
+          if (processedFields.has(param.name) || param.name.includes("."))
+            return;
 
           if (param.desc) {
             code += `  /** ${param.desc} */\n`;
