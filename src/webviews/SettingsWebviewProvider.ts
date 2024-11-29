@@ -167,7 +167,7 @@ export class SettingsWebviewProvider implements vscode.WebviewViewProvider {
                   <div class="form-group">
                     <label>request方法的文件路径:</label>
                     <input type="text" id="yapi-requestsrc" value="${
-                      config.yapi?.requestsrc || ""
+                      config?.yapi?.requestsrc || ""
                     }">
                   </div>
                   <div class="form-group">

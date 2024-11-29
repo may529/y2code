@@ -7,17 +7,7 @@ const DEFAULT_CONFIG: ExtensionConfig = {
     token: "",
     url: "",
     projectId: "",
-    requestsrc: `
-import { request } from '@/utils/request';
-
-export function \${functionName}(\${params}) {
-  return request<\${responseType}>({
-    url: '\${path}',
-    method: '\${method}',
-    \${dataKey}: \${dataValue},
-  });
-}
-    `.trim(),
+    requestsrc: "",
   },
   pageTemplates: [],
 };

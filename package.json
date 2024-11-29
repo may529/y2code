@@ -3,7 +3,7 @@
   "displayName": "K2C",
   "description": "fontend to Code Generator",
   "author": "majirong",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "majirong",
   "icon": "resources/logo.png",
   "engines": {
